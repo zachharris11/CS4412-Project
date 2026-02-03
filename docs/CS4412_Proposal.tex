@@ -1,0 +1,102 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{url}
+
+\def\BibTex{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+
+\begin{document}
+
+\title{Data Mining Proposal: Mining and Analyzing Metascores, Userscores, and Finding Patterns Between Genres Within a Metacritic Dataset\\
+{\footnotesize \textsuperscript{} CS 4412: Data Mining}
+}
+\author{Zachary Harris \\ zharri30@students.kennesaw.edu}
+\date{February 2026}
+
+
+\maketitle
+
+\begin{abstract}
+    This report is a proposal for data mining a dataset consisting of Metacritic movies, in no particular order. Among the dataset are categories such as Rating, Metascore, Userscore, Genre, Cast, and other similar categorical information. Using this information, the analysis of this data will find patterns between different statistics. The goal of this research is to find possible correlation between categories of movies.
+\end{abstract}
+
+\section{Introduction}
+Movies have been around for over a century now, and with the introduction of the internet came sites designed specifically for reviewing. One such site is Metacritic, with a database full of movies and respective reviews. Here, both critics and audiences can leave reviews which are aggregated into an average respective score. Through the detection of patterns and trends among moviegoers and various movie statistics, this research can show an understanding of how people perceive the movie industry.
+
+\section{Dataset Description}
+This specific study will use a dataset titled "Metacritic Movies Dataset," uploaded to Kaggle on January 24, 2026.
+
+\subsection{Source and Description}
+\begin{itemize}
+    \item \textbf{Source:} \url{https://www.kaggle.com/datasets/mohamedasak/metacritic-movies-dataset/data}
+    \item \textbf{Description:} The 23mb dataset contains 16319 different movie titles. Each movie has a unique ID associated with it. In total, there are 18 columns that contain different categories of information. This dataset is in CSV format.
+\end{itemize}
+
+\subsection{Data Attributes}
+\begin{itemize}
+    \item \textbf{Landmark Attributes} Attributes that will be utilized aside from the title are the movie rating, genre, metascore and userscore, writer, production company, and top cast.
+    \item \textbf{Known Issues} The release dates of movies will not be factored into analysis, as not enough entries are put in. The descriptions and taglines will also not be utilized, as these are incredibly personalized to the respective movie and as such, no useful information can be derived from an analysis in these categories. \\
+    Another possible issue could stem from the span of this dataset. The amount of entries, while plentiful, may still not be enough to analyze consistently and reliably. This can hopefully be mitigated via multiple methods of mining, for the sake of double checking the methods.
+\end{itemize}
+
+\section{Discovery Questions}
+This research will primarily focus on a few different questions that can be answered through an analysis of the dataset.
+\begin{itemize}
+    \item Which writers do critics tend to give more favorable reviews towards, and is there a trend with the genres of said movies? Is this represented through the overall Metascore?
+    \item Based on the number of Userscores and Metascores on a particular movie, is it possible to discern whether a movie was intended more for general audiences or for experienced moviegoers?
+    \item If there are any heavy disparities between a Metascore and a Userscore, could patterns become noticeable from aspects about those movies?
+\end{itemize}
+
+\section{Planned Techniques}
+This analysis will consist of the planned analysis pipeline for each of the data mining techniques of choice. Figure 1 below illustrates the pipeline that will be followed:
+
+\begin{figure}[htbp]
+    \centering
+    \framebox{\parbox{.45\textwidth}{\centering
+        \vspace{1.5cm}
+        \textbf{Analysis Pipeline Diagram} \\
+        \small\textit{Preprocessing $\rightarrow$ Transforming $\rightarrow$ Mining $\rightarrow$ Interpreting $\rightarrow$ Visualizing}
+        \vspace{1.5cm}
+    }}
+    \caption{Planned Analysis Pipeline for Data Mining Techniques}
+    \label{fig:pipeline}
+\end{figure}
+
+\subsection{FP-Growth Association Rules}\label{AA}
+By taking the metadata from the movies within the dataset, association rules will be formed regarding various relationships certain statistics show. This can form patterns and associations as to if, for example, movies with select writers gain more favorable traction than others. Many other associations similar to this example can be formed from this approach.
+\subsection{PCA Dimensionality Reduction}
+PCA will condense the necessary columns consisting of numerical data down into a small amount of columns, that are filled with new variables created during the process. This will help better visualize and represent important aspects of any clusters that may form, in addition to observing which elements correlate with each other the most. In addition, redundancies are usually removed during the process due to the compacting of data, increasing efficiency.
+\subsection{K-Means Clustering}
+This technique will be used to separate and partition several portions of data into k amounts of clusters, in addition to utilizing distance via Euclidean and other measures. This will allow movies to fall into clusters that share traits with each other. For example, highly rated movies can be grouped with respective ratios of Metascores to Userscores. This can in turn determine the intended audience for the respective movie. In addition, the clustering will be a clear way of visually representing the data of the movies analyzed.
+
+
+\section{Preliminary Timeline}
+While this timeline is not yet fully set in stone, below is a rough estimate of the Milestone deadlines and timeline of the different data mining techniques.
+
+\begin{table}[htbp]
+    \caption{Timeline: Project Milestones}
+    \begin{center}
+        \begin{tabular}{@{}llp{4.5cm}@{}}
+            \toprule
+            \textbf{Milestone} & \textbf{Period} & \textbf{Key Milestones} \\ \midrule
+            M2 & Week 8 & Apply KDD Process, Begin Work on Mining Techniques \\
+            M3 & Week 11 & Continue Mining Techniques and Begin Testing \\
+            M4 & Week 14 & Complete Testing and Write Final Report \\ \bottomrule
+        \end{tabular}
+    \end{center}   
+\end{table}
+
+\subsection{Anticipated Challenges}
+\begin{itemize}
+    \item A big challenge will be growing accustomed to the practice of data mining as a whole. This is an entirely new field with my experience, and it may take some time to familiarize myself with what I am doing regarding data analysis.
+    \item An additional challenge is the logistics of the analyzing itself. With multiple columns representing different variables and data types in the dataset, learning what conclusions are useful and which ones are negligible will be something to look out for.
+\end{itemize}
+
+\end{document}
